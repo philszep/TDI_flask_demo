@@ -36,7 +36,10 @@ def index():
     current_stock = 'GOOG'
 
   AA_key = os.environ.get('AA_key')
-  plot = make_plot(current_stock,AA_key)
+  try:
+    plot = make_plot(current_stock,AA_key)
+  except:
+    plot = make_plot('GOOG',AA_key)
 
   script, div = components(plot)
 
