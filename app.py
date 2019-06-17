@@ -7,6 +7,7 @@ import numpy as np
 import bokeh as bk
 import requests
 import datetime
+import os
 
 
 app = Flask(__name__)
@@ -34,7 +35,8 @@ def index():
   except:
     current_stock = 'GOOG'
 
-  plot = make_plot(current_stock)
+  AA_key = os.environ.get('AA_key')
+  plot = make_plot(current_stock,AA_key)
 
   script, div = components(plot)
 
